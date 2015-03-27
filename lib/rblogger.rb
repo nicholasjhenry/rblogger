@@ -1,5 +1,5 @@
 require "rblogger/version"
 
-module Rblogger
+module RBlogger
   # Your code goes here...
 end

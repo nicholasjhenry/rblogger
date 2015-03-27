@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Rblogger do
+describe RBlogger do
   it 'has a version number' do
-    expect(Rblogger::VERSION).not_to be nil
+    expect(RBlogger::VERSION).not_to be nil
   end
 
   it 'does something useful' do

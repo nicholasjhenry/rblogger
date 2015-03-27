@@ -5,7 +5,7 @@ require 'rblogger/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rblogger"
-  spec.version       = Rblogger::VERSION
+  spec.version       = RBlogger::VERSION
   spec.authors       = ["Nicholas Henry"]
   spec.email         = ["nicholas.henry@gmail.com"]
 
