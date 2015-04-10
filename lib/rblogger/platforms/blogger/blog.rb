@@ -7,8 +7,10 @@ module RBlogger
         @api = api
       end
 
+      attr_reader :client, :api, :blog_id
+
       def posts
-        result = @client.execute!(:api_method => @api.posts.list, :parameters => {'blogId' => @blog_id})
+        result = client.execute!(:api_method => api.posts.list, :parameters => {'blogId' => blog_id})
         result.data.items
       end
     end
