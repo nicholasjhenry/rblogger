@@ -1,3 +1,7 @@
+require 'google/api_client/auth/file_storage'
+require 'google/api_client/auth/installed_app'
+require 'extensions/google/api_client/installed_app_flow'
+
 module RBlogger
   class Blogger
     class Authorizer

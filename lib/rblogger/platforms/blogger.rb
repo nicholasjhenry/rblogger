@@ -1,11 +1,8 @@
 require 'google/api_client'
-require 'google/api_client/auth/installed_app'
-require 'google/api_client/auth/file_storage'
-require 'extensions/google/api_client/installed_app_flow'
+require 'rblogger/platforms/blogger/authorizer'
 require 'rblogger/platforms/blogger/blog'
 require 'rblogger/platforms/blogger/configuration'
 require 'rblogger/platforms/blogger/document_repository'
-require 'rblogger/platforms/blogger/authorizer'
 
 
 module RBlogger
