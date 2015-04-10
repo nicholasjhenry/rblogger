@@ -8,12 +8,14 @@ module RBlogger
     require 'rblogger/platforms/blogger/blog'
 
     class Configuration
-      attr_reader :api_version, :cached_api_file, :credential_stored_file
+      attr_reader :api_version, :cached_api_file, :credential_stored_file, :client_secrets_file
 
       def initialize
         @api_version = "v3"
-        @credential_stored_file = "#{Dir.home}/.rblogger/oauth2.json"
-        @cached_api_file = "#{Dir.home}/.rblogger/api_#{@api_version}.cache"
+        @root_path = "#{Dir.home}/.rblogger/"
+        @credential_stored_file = "#{@root_path}/oauth2.json"
+        @cached_api_file = "#{@root_path}/api_#{@api_version}.cache"
+        @client_secrets_file = "#{@root_path}/client_secrets.json"
       end
     end
 
@@ -63,7 +65,7 @@ module RBlogger
     def authorize!
       file_storage = Google::APIClient::FileStorage.new(configuration.credential_stored_file)
       if file_storage.authorization.nil?
-        client_secrets = Google::APIClient::ClientSecrets.load("#{Dir.home}/.rblogger/client_secrets.json")
+        client_secrets = Google::APIClient::ClientSecrets.load(configuration.client_secrets_file)
         # The InstalledAppFlow is a helper class to handle the OAuth 2.0 installed
         # application flow, which ties in with FileStorage to store credentials
         # between runs.
