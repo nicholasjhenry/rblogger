@@ -8,6 +8,7 @@ module RBlogger
     require 'rblogger/platforms/blogger/blog'
     require 'rblogger/platforms/blogger/configuration'
     require 'rblogger/platforms/blogger/document'
+    require 'rblogger/platforms/blogger/authorizer'
 
     def initialize
       @client = Google::APIClient.new(
@@ -33,21 +34,8 @@ module RBlogger
     private
 
     def authorize!
-      file_storage = Google::APIClient::FileStorage.new(configuration.credential_stored_file)
-      if file_storage.authorization.nil?
-        client_secrets = Google::APIClient::ClientSecrets.load(configuration.client_secrets_file)
-        # The InstalledAppFlow is a helper class to handle the OAuth 2.0 installed
-        # application flow, which ties in with FileStorage to store credentials
-        # between runs.
-        flow = Google::APIClient::InstalledAppFlow.new(
-          :client_id => client_secrets.client_id,
-          :client_secret => client_secrets.client_secret,
-          :scope => 'https://www.googleapis.com/auth/blogger'
-        )
-        client.authorization = flow.authorize_cli(file_storage)
-      else
-        client.authorization = file_storage.authorization
-      end
+      authorizer = Authorizer.new(configuration)
+      client.authorization = authorizer.authorize!
     end
   end
 end
