@@ -1,5 +1,7 @@
 # RBlogger
 
+*Please note that project is currently under development, is not production ready, and has not been pushed to RubyGems yet.*
+
 [![Code Climate](https://codeclimate.com/github/nicholasjhenry/rblogger/badges/gpa.svg)](https://codeclimate.com/github/nicholasjhenry/rblogger)
 [![Test Coverage](https://codeclimate.com/github/nicholasjhenry/rblogger/badges/coverage.svg)](https://codeclimate.com/github/nicholasjhenry/rblogger)
 
