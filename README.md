@@ -1,5 +1,8 @@
 # RBlogger
 
+[![Code Climate](https://codeclimate.com/github/nicholasjhenry/rblogger/badges/gpa.svg)](https://codeclimate.com/github/nicholasjhenry/rblogger)
+[![Test Coverage](https://codeclimate.com/github/nicholasjhenry/rblogger/badges/coverage.svg)](https://codeclimate.com/github/nicholasjhenry/rblogger)
+
 RBlogger publishes formatted markdown files to third-party blogging services
 such as Google's Blogger. In fact it supports Blogger out of the box.
 
