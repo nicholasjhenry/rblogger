@@ -29,7 +29,7 @@ module RBlogger
         Google::APIClient::InstalledAppFlow.new(
           client_id: client_secrets.client_id,
           client_secret: client_secrets.client_secret,
-          scope: 'https://www.googleapis.com/auth/blogger'
+          scope: configuration.api_scope
         )
       end
 
