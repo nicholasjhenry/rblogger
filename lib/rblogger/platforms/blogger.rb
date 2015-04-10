@@ -22,13 +22,9 @@ module RBlogger
 
     attr_reader :client, :configuration
 
-    def api
-      Document.new(client, configuration).fetch
-    end
-
     def fetch_blog(blog_id)
       authorize!
-      Blog.new(client, api, blog_id)
+      build_blog(blog_id)
     end
 
     private
@@ -36,6 +32,14 @@ module RBlogger
     def authorize!
       authorizer = Authorizer.new(configuration)
       client.authorization = authorizer.authorize!
+    end
+
+    def build_blog(blog_id)
+      Blog.new(client, api, blog_id)
+    end
+
+    def api
+      Document.new(client, configuration).fetch
     end
   end
 end
