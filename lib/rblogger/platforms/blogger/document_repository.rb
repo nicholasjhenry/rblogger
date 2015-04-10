@@ -15,7 +15,7 @@ module RBlogger
         if File.exists?(configuration.cached_api_file)
           load_document
         else
-          client.discovered_api('blogger', configuration.api_version).tap do |document|
+          client.discovered_api(configuration.api_name, configuration.api_version).tap do |document|
             save_document(document)
           end
         end
