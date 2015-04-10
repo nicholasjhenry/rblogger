@@ -37,7 +37,7 @@ module RBlogger
       if File.exists?(configuration.cached_api_file)
         load_document
       else
-        @client.discovered_api('blogger', configuration.api_version).tap do |document|
+        client.discovered_api('blogger', configuration.api_version).tap do |document|
           save_document(document)
         end
       end
@@ -57,7 +57,7 @@ module RBlogger
 
     def fetch_blog(blog_id)
       authorize!
-      Blog.new(@client, api, blog_id)
+      Blog.new(client, api, blog_id)
     end
 
     private
@@ -74,9 +74,9 @@ module RBlogger
           :client_secret => client_secrets.client_secret,
           :scope => 'https://www.googleapis.com/auth/blogger'
         )
-        @client.authorization = flow.authorize_cli(file_storage)
+        client.authorization = flow.authorize_cli(file_storage)
       else
-        @client.authorization = file_storage.authorization
+        client.authorization = file_storage.authorization
       end
     end
   end
