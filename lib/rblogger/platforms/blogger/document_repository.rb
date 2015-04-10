@@ -1,6 +1,6 @@
 module RBlogger
   class Blogger
-    class Document
+    class DocumentRepository
       def initialize(client, configuration)
         @client = client
         @configuration = configuration

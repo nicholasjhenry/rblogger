@@ -4,7 +4,7 @@ require 'google/api_client/auth/file_storage'
 require 'extensions/google/api_client/installed_app_flow'
 require 'rblogger/platforms/blogger/blog'
 require 'rblogger/platforms/blogger/configuration'
-require 'rblogger/platforms/blogger/document'
+require 'rblogger/platforms/blogger/document_repository'
 require 'rblogger/platforms/blogger/authorizer'
 
 
@@ -39,7 +39,7 @@ module RBlogger
     end
 
     def api
-      Document.new(client, configuration).fetch
+      DocumentRepository.new(client, configuration).fetch
     end
   end
 end
